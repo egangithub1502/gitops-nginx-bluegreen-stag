@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/egangithub1502/gitops-nginx-bluegreen-stag'
     targetRevision: main
-    path: overlays/green       # Staging will use the green overlay
+    path: overlays/blue       # Staging will use the green overlay
   destination:
     server: 'https://34.27.212.196'   # Staging cluster API server from `argocd cluster list`
     namespace: nginx
