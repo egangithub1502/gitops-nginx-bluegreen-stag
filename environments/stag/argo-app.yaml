@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-bluegreen-stag
+  namespace: argocd   # where Argo CD is installed
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/egangithub1502/gitops-nginx-bluegreen'
+    targetRevision: main
+    path: overlays/green       # Staging will use the green overlay
+  destination:
+    server: 'https://34.27.212.196'   # Staging cluster API server from `argocd cluster list`
+    namespace: nginx
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+

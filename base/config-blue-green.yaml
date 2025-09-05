@@ -1,0 +1,10 @@
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: nginx-frontend-config
+  namespace: nginx
+spec:
+  sslPolicy: nginx-ssl-security
+  redirectToHttps:
+    enabled: true
+    responseCodeName: "301"

@@ -1,0 +1,5 @@
+resources:
+  - config-blue-green.yaml
+  - blue-green-ing.yaml
+  - nginx-service.yaml
+

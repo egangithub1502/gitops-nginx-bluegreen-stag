@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-app-blue
+  namespace: nginx
+  labels:
+    app: nginx
+    color: blue
+spec:
+  serviceName: "nginx-app-headless"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: nginx
+        color: blue
+    spec:
+      containers:
+      - name: nginx
+        image: us-central1-docker.pkg.dev/stm-01/my-app-repo/my-app:latest
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: nginx-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
+

@@ -1,0 +1,5 @@
+resources:
+  - ../../base
+  - nginx-app-blue.yaml
+  - nginx-service-blue.yaml
+
