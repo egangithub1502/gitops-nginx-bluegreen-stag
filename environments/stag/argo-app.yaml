@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/egangithub1502/gitops-nginx-bluegreen'
+    repoURL: 'https://github.com/egangithub1502/gitops-nginx-bluegreen-stag'
     targetRevision: main
     path: overlays/green       # Staging will use the green overlay
   destination:

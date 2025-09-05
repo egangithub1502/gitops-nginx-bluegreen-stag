@@ -12,7 +12,7 @@ metadata:
 spec:
   selector:
     app: nginx
-    color: green   # initially points to blue pods; patched to green when switching
+    color: blue   # initially points to blue pods; patched to green when switching
   ports:
   - protocol: TCP
     port: 80
